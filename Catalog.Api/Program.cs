@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 
-namespace ApiGateway
+namespace Catalog.API
 {
     public class Program
     {
@@ -13,10 +12,6 @@ namespace ApiGateway
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((host, config) =>
-                {
-                    config.AddJsonFile($"configuration.{host.HostingEnvironment.EnvironmentName}.json", true, true);
-                })
                 .UseStartup<Startup>();
     }
 }
